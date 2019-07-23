@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+<meta charset=utf-8>
+
+<h1>Teste do numero</h2>
+
+<p>Por favor escreva um numero entre 0 e 10</p>
+
+<input id="numb">
+
+<button type="button" onclick="myFunction()">Enviar</button>
+
+<p id="demo"></p>
+
+<script>
+//Teste do numero
+function myFunction() {
+    var x, text;
+    x = document.getElementById("numb").value;
+
+    if (isNaN(x) || x < 0 || x > 10) {
+        text = "Numero nao valido";
+    } else {
+        text = "Numero OK";
+    }
+   document.getElementById("demo").innerHTML = text;
+}
+</script>
+
+</body>
+</html> 
+

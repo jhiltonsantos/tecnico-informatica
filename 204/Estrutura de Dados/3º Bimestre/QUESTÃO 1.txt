@@ -1,0 +1,9 @@
+Construa um programa na linguagem C que represente uma
+
+ Lista Estática Desordenada, que possua como campos:
+ código e nome do cliente. 
+
+Neste programa será necessário 
+criar um menu que tenha inserir, remover, listar, consulta. 
+Observação: Implemente um contador de registros inseridos e que o
+ mesmo deverá ser decrementado quando a informação foi excluída.

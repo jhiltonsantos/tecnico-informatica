@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct lista_aluno{
+	int cod_aluno;
+	char nome[20];
+	int quan_t;	
+}Tipo_lista_aluno;
+
+const max = 5;
+int quant_aluno;
+
+Tipo_lista_aluno lista[10];
+
+void inserir(){
+	
+	TAluno *novono;
+	int i, matl, continuar;
+	char nomel[20];
+	
+	do{
+		cabec();
+		printf(\n Inserir novo aluno \n);
+		printf(\n Matricula: );
+		scanf(%d,&matl);
+		printf(\n Nome: );
+		fflush(stdin);
+		gets(nomel);
+		fflush(stdin);
+		qa++;
+		novono = (TAluno *)malloc(sizeof(TAluno));
+		novono->mat = matl;
+		for (i=0;i<=19;i++){
+			novono->nome[i] =nomel[i];
+			novono->prox = NULL;
+			if (inicio == NULL) {
+				inicio = novono;
+				fim = novono;
+		}
+			else {
+				fim->prox = novono;
+				fim = novono;
+		}}
+		printf(\n\nInserido com Sucesso!!!!\n);
+		printf(\nContinuar inserindo (1-sim/2-nao)? );
+		scanf(%d,&continuar);
+		}while (continuar == 1);
+	}
+
+}

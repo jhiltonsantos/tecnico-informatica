@@ -1,0 +1,276 @@
+>>>Activity 1 Tela 1
+activity_main_tela1.xml
+Semana passada
+qua 11:37
+
+Você fez o upload de 1 item
+XML
+activity_main_tela1.xml
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainTela1"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="@string/nome"
+            android:textSize="25dp"
+            android:layout_margin="30dp"
+            />
+        <EditText
+            android:id="@+id/nome"
+            android:hint="Nome..."
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="30dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="@string/altura"
+            android:textSize="25dp"
+            android:layout_margin="30dp"
+            />
+        <EditText
+            android:id="@+id/altura"
+            android:hint="cm..."
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="30dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="@string/peso"
+            android:textSize="25dp"
+            android:layout_margin="30dp"
+            />
+        <EditText
+            android:id="@+id/peso"
+            android:hint="kg..."
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="30dp"/>
+    </LinearLayout>
+
+    <Button
+        android:onClick="calcularimc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="MEU IMC"/>
+
+</LinearLayout>
+
+
+
+>>>> JAVA TELA 1
+MainTela1.java
+Semana passada
+qua 11:41
+
+Você fez o upload de 1 item
+Java
+MainTela1.java
+package usuario.app.calculoimc;
+
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+
+public class MainTela1 extends AppCompatActivity {
+
+    EditText editNome;
+    EditText editAltura;
+    EditText editPeso;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main_tela1);
+    //blinding
+        editNome = findViewById(R.id.nome);
+        editAltura = findViewById(R.id.altura);
+        editPeso = findViewById(R.id.peso);
+    }
+
+    public void calcularimc(View view) {
+        String rNome = editNome.getText().toString();
+        String rAltura = editAltura.getText().toString();
+        String rPeso = editPeso.getText().toString();
+
+        Intent intent = new Intent(this, MainTela2.class);
+        intent.putExtra("pacotenome", rNome);
+        intent.putExtra("pacotealtura", rAltura);
+        intent.putExtra("pacotepeso", rPeso);
+
+        startActivity(intent);
+    }
+}
+
+
+>>>>Activity 2 Tela 2
+activity_main_tela2.xml
+Semana passada
+qua 11:37
+
+Você fez o upload de 1 item
+XML
+activity_main_tela2.xml
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainTela2"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Olá!!!"
+        android:textSize="40dp"
+        android:layout_gravity="center"
+        />
+    <TextView
+        android:id="@+id/nomeP"
+        android:text="nome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="40dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Seu IMC é:"
+        android:layout_gravity="center"
+        android:textSize="40dp"
+        />
+    <TextView
+        android:id="@+id/imc"
+        android:layout_width="wrap_content"
+        android:text="imc"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="40dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Classificação:"
+        android:layout_gravity="center"
+        android:textSize="40dp"
+        />
+    <TextView
+        android:id="@+id/classificacao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="classificacao"
+        android:textSize="40dp"
+        />
+
+</LinearLayout>
+
+>>>>>>JAVA TELA 2
+MainTela2.java
+Semana passada
+qua 11:41
+
+Você fez o upload de 1 item
+Java
+MainTela2.java
+package usuario.app.calculoimc;
+
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.widget.TextView;
+
+public class MainTela2 extends AppCompatActivity {
+    TextView nome_mostrar;
+    TextView imc_mostrar;
+    TextView classificacao_mostrar;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main_tela2);
+
+        //ip's Tela 2
+        nome_mostrar = findViewById(R.id.nomeP);
+        imc_mostrar = findViewById(R.id.imc);
+        classificacao_mostrar = findViewById(R.id.classificacao);
+
+        //Recebendo Tela 1
+        Intent intent = getIntent();
+        String pacoteNome = intent.getStringExtra("pacotenome");
+        String pacoteAltura = intent.getStringExtra("pacotealtura");
+        float altura = Integer.valueOf(pacoteAltura);
+        String pacotePeso = intent.getStringExtra("pacotepeso");
+        float peso = Integer.valueOf(pacotePeso);
+
+        //Calcular IMC obs:depois resolver problema dos valores
+        float calculoimc = (peso)/(altura*altura);
+        float valor = calculoimc*10000;
+        String resultadoimc = String.valueOf(valor);
+
+
+        //Classificacao
+        String classificacao = null;
+        if (valor < 18.5){
+            classificacao = "Abaixo do Peso";
+        }
+        if (valor >= 18.5 && valor <=24.9){
+            classificacao = "Peso Normal";
+        }
+        if (valor >= 25 && valor <= 29.9){
+            classificacao = "Sobrepeso";
+        }
+        if (valor >= 30 && valor <= 34.9){
+            classificacao = "Obesidade I";
+        }
+        if (valor >= 35 && valor <= 39.9){
+            classificacao = "Obesidade II";
+        }
+        if (valor >= 40) {
+            classificacao = "Obesidade III";
+        }
+
+        nome_mostrar.setText(pacoteNome);
+        imc_mostrar.setText(resultadoimc);
+        classificacao_mostrar.setText(classificacao);
+
+
+
+    }
+}

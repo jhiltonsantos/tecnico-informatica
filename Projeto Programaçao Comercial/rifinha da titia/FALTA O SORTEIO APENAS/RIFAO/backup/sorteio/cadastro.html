@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Cadastro para Sorteio</title>
+<style type="text/css">
+.formulario{width:300px; height:300px;}
+.formulario label{display:block; font-family:Verdana, Geneva, sans-serif; font-size:13px; width:300px; color:#000; margin-bottom:3px;}
+.campo{width:300px; margin-bottom:3px; display:block;}
+.data{float:left; width:80px; margin-bottom:3px;  margin-right:10px;}
+.linhadata{width:300px; display:block; height:25px;}
+</style>
+</head>
+
+<body>
+<form action="scriptcadastro.php" method="post" class="formulario">
+<label for="nome">Nome:</label><input type="text" class="campo" name="nome" id="nome" />
+<label for="sobrenome">Sobrenome:</label><input type="text" class="campo" name="sobrenome" id="sobrenome" />
+<label for="dia">Data de Nascimento: (dia/mês/ano)</label>
+<div class="linhadata">
+<input type="text" class="data" maxlength="2" name="dia" id="dia" />
+<input type="text" class="data" maxlength="2" name="mes" id="mes" />
+<input type="text" class="data" maxlength="4" name="ano" id="ano" />
+</div>
+<label for="email">E-mail:</label><input type="text" class="campo" name="email" id="email" />
+<label for="cidade">Cidade:</label><input type="text" class="campo" name="cidade" id="cidade" />
+<label for="resposta">Quem é o atual Presidente da República:</label>
+<input type="text" class="campo" name="resposta" id="resposta" />
+
+
+<input type="submit"  value="cadastrar" />
+</form>
+</body>
+</html>

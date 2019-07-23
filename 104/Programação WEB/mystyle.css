@@ -1,0 +1,14 @@
+body{
+    background-color: yellow;
+    text-align:center;
+}
+
+h1 {
+    color: pink;
+    margin-left: 30px;
+}
+p{
+    color:white;
+    margin-left: 50px;
+}
+

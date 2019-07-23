@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Novo Veiculo</title>
+</head>
+<body>
+
+    <form action="/salvar_veiculo" method="POST">
+        <input type="hidden" name="editando" value="{{ editando }}" />
+
+        <input type="text" name="nome_veiculo" value="{{    carro[0]    }}" placeholder="Nome do veiculo">
+
+        <input type="number" name="ano_veiculo"  value="{{ carro[1] }}" placeholder="Ano do veiculo">
+
+        <select name="cor_do_veiculo">
+            <option value="Preto"   {% if carro[2] == 'Preto' %} selected {% endif %}>PRETO</option>
+            <option value="Branco"  {% if carro[2] == 'Branco' %} selected {% endif %}>BRANCO</option>
+            <option value="Vermelho"{% if carro[2] == 'Vermelho' %} selected {% endif %}>VERMELHO</option>
+        </select>
+
+        <input type="submit" values="salvar_veiculo" />
+
+    </form>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainTela1"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="@string/nome"
+            android:textSize="25dp"
+            android:layout_margin="30dp"
+            />
+        <EditText
+            android:id="@+id/nome"
+            android:hint="Nome..."
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="30dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="@string/altura"
+            android:textSize="25dp"
+            android:layout_margin="30dp"
+            />
+        <EditText
+            android:id="@+id/altura"
+            android:hint="cm..."
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="30dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="@string/peso"
+            android:textSize="25dp"
+            android:layout_margin="30dp"
+            />
+        <EditText
+            android:id="@+id/peso"
+            android:hint="kg..."
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="30dp"/>
+    </LinearLayout>
+
+    <Button
+        android:onClick="calcularimc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="MEU IMC"/>
+
+</LinearLayout>

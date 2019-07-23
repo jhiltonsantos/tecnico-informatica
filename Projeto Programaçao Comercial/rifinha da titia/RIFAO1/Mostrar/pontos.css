@@ -1,0 +1,41 @@
+
+            *{
+                margin: 0px;
+            }
+
+
+            body{
+                background-color: #FEFBD0;
+                font-family: 'PT+Sans+Narrow', sans-serif;
+                grid-template-columns: repeat(5,1fr);
+            }
+            ul {
+                      list-style-type: none;
+                      margin: 0;
+                      padding: 0;
+                      width: 17%;
+                      background: #333333;
+                      font-family: 'Oxygen Mono', Tahoma, Arial, sans-serif;
+                      position: fixed;
+                      height: 100%;
+                      overflow: auto;
+
+                  }
+
+                  li a {
+                      display: block;
+                      color: white;
+                      padding: 8px 16px;
+                      text-decoration: none;
+
+                  }
+
+                  li a.active {
+                      background-color: #1b9bff;
+                      color: white;
+                  }
+
+                  li a:hover:not(.active) {
+                      background-color: #1b9bff;
+                      color: white;
+                  }

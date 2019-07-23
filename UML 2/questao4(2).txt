@@ -1,0 +1,187 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct lista_aluno{
+	int cod_aluno;
+	char nome[20];
+	int quan_t;	
+}Tipo_lista_aluno;
+
+const max = 5;
+int quant_aluno;
+
+Tipo_lista_aluno lista[10];
+
+void inserir(){
+	
+	TAluno *novono;
+	int i, matl, continuar;
+	char nomel[20];
+	
+	do{
+		cabec();
+		printf(\n Inserir novo aluno \n);
+		printf(\n Matricula: );
+		scanf(%d,&matl);
+		printf(\n Nome: );
+		fflush(stdin);
+		gets(nomel);
+		fflush(stdin);
+		qa++;
+		novono = (TAluno *)malloc(sizeof(TAluno));
+		novono->mat = matl;
+		for (i=0;i<=19;i++){
+			novono->nome[i] =nomel[i];
+			novono->prox = NULL;
+			if (inicio == NULL) {
+				inicio = novono;
+				fim = novono;
+		}
+			else {
+				fim->prox = novono;
+				fim = novono;
+		}}
+		printf(\n\nInserido com Sucesso!!!!\n);
+		printf(\nContinuar inserindo (1-sim/2-nao)? );
+		scanf(%d,&continuar);
+		}while (continuar == 1);
+	}
+	
+	
+void consultar(){
+	int matc, continuar, achou=0;
+	do{
+		cabec();
+		printf(\nConsulta aluno pelo numero de matricula\n\n);
+		printf(\nMatricula: );
+		scanf(%d,&matc);
+		noatual = inicio;
+		while(noatual != NULL) {
+			if (noatual->mat == matc) {
+				achou = 1;
+				printf(\n\nMatricula Nome\n); 
+			
+			printf(%9d %-20s\n,noatual->mat, noatual->nome);
+			break;
+			}
+			else
+			noatual = noatual->prox;
+		}
+		if (achou == 0){
+			printf(\n\nAluno nao encontrado!!\n);
+			}
+			printf(\nContinuar consultando (1-sim/2-nao)? );
+			scanf(%d,&continuar);
+	}while (continuar == 1);
+} 
+
+void listar(){
+ noatual = inicio;
+ cabec();
+ printf(\nListagem de Alunos\n\n);
+ if (qa != 0) {
+ 	printf(\n\nMatricula Nome\n);
+ 	while( noatual != NULL) {
+ 		printf(%9d %-20s\n,noatual->mat, noatual->nome);
+ 		noatual = noatual->prox;
+ 		}
+ 	printf(\n\nQuantidade de Alunos = %d\n,qa);
+ }
+ else{
+ 	printf(\n\n Nao tem nenhum aluno cadastrado);
+ }
+ printf(\n\n\nTecle enter para voltar para o menu\n);
+ getche();
+}
+
+void retirar(){
+	TAluno *noantrem;
+ 	int matr, confrem, continuar, achou;
+ 	do{
+ 		achou = 0;
+ 		cabec();
+ 		printf(\nRemove aluno \n\n);
+ 		printf(\nMatricula: );
+ 		scanf(%d,&matr);
+ 		noatual = inicio;
+		while(noatual != NULL) {
+ 			if (noatual->mat == matr) {
+ 				achou = 1;
+				printf(\n\nMatricula Nome\n);
+ 				printf(%9d %-20s\n,noatual->mat, noatual->nome);
+ 				printf(\n\nDeseja remover o aluno (1-sim, 2-nao)? );
+				scanf(%d,&confrem);
+ 				if (confrem ==1) {
+					if (noatual == inicio)
+ 						inicio = inicio->prox;
+ 					else {
+ 						noantrem->prox=noatual->prox;
+ 					if (noatual == fim) 
+  						fim=noantrem;
+ 					}
+ 					qa--;
+ 					free(noatual);
+ 					printf(\n\nRemovido com sucesso!!!!\n);
+ 				}				
+ 				else{
+ 					printf(\n\nRemocao cancelada\n);
+					break;}
+ 			}
+ 			else {
+				noantrem = noatual;
+ 				noatual = noatual->prox;
+ 			}
+ 		}
+ 		if (achou == 0){
+ 			printf(\n\nAluno nao encontrado!!\n);}
+ 	printf(\n\nDeseja remover outro (1-sim, 2-nao)? );
+ 	scanf(%d,&continuar);
+ }while (continuar ==1); 
+}
+
+void menu(){
+	qa_clientes =0;
+	int escolha;
+	do { 
+		printf("Opcoes:\n\n");
+		printf("      1- Inserir novo Convidado\n\n");
+		printf("      2- Listagem de Convidados\n\n");
+		printf("      3- Consulta convidado por codigo\n\n");
+		printf("      4- Remover convidado por codigo\n\n");
+		printf("      0- Sair do Programa\n");
+		printf("\n      Informe a Opcao desejada: ");
+		scanf("%d", &escolha);
+		switch(escolha){ 
+			case 1: inserir();
+				mostrar();
+					break;
+			case 2: listar();
+				mostrar();
+					break;
+			case 3: consultar();
+				mostrar();
+					break;
+			case 4: remover();
+				mostrar();
+					break;
+			case 0: break;
+			default : printf("\n\Opcao Invalida! ");
+			break;
+	}
+	}while (escolha != 0);
+	
+	return 0;
+	
+}
+
+int main(){
+
+menu();
+}
+
+
+
+
+
+
+}

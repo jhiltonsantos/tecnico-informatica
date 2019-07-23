@@ -1,0 +1,8 @@
+Delimiter //
+Create Procedure deleta_pontos (rifa_pr int)
+begin
+	delete from Sorteio where cod_rifa = rifa_pr;
+	delete from Pontos where cod_rifa = rifa_pr;
+
+end//
+Delimiter ;

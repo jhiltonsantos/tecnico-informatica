@@ -1,0 +1,233 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<title>Cadastro de Usuário</title>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Cadastro</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto+Condensed" rel="stylesheet"></link>
+<style>
+    
+    body{
+        background-image: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 34));
+        
+    }
+    
+    #title{
+        width: 70%;
+        height: 50px;
+        background-color: white;
+        text-align: center;
+        border-radius: 20px;
+        margin-left: 10%;
+        
+    }
+    
+    #content,body,select{
+        margin-left: 10%;
+        font-family: 'Montserrat', sans-serif;
+        color: darkslateblue;
+    }
+		
+    ::-webkit-input-placeholder {
+    	color:lightgray;
+        font-family: 'Montserrat', sans-serif;
+        }
+
+	div.center-form > form {
+		position: relative;
+		margin-top: 5%;
+		left:10%;		
+        background-color: white;
+        border-radius: 20px;
+        width: 70%;
+	}
+	
+	.corForm {
+		color:darkslategray;
+		}
+    
+    input,select{
+        border-radius: 5px;
+        }
+    
+    button{
+        width: 10%;
+        height: 30px;
+        font-family: 'Montserrat', sans-serif;
+        }
+                
+                
+</style>
+
+<script type="text/javascript" src="jquery-3.3.1.js"></script>
+<script type="text/javascript">
+	
+
+	function verificaNumero(e) {
+                if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+                    return false;
+                }
+				
+	}
+               
+    
+        $(document).ready(function() {
+			$("#cpf").keypress(verificaNumero);
+			$("#cep").keypress(verificaNumero);
+			$("#DN").keypress(verificaNumero);
+            $("#ncasa").keypress(verificaNumero);
+            $("#tel2").keypress(verificaNumero);
+            $("#tel").keypress(verificaNumero);
+        });
+	
+        
+		function FormataCpf(evt){
+		vr = (navigator.appName === 'Netscape') ?evt.target.value : evt.scrElement.value;
+			if(vr.length === 3) vr = vr+".";
+			if(vr.length === 7) vr = vr+".";
+			if(vr.length === 11) vr = vr+"-";
+		return vr;
+	}
+		function FormataCep(evt){
+		vr = (navigator.appName === 'Netscape') ?evt.target.value : evt.scrElement.value;
+			if(vr.length === 2) vr = vr+".";
+			if(vr.length === 6) vr = vr+"-";
+		return vr;
+	}
+	function FormataNumero(evt){
+		vr = (navigator.appName === 'Netscape') ?evt.target.value : evt.scrElement.value;
+			if(vr.length === 0) vr = vr+"(";
+                        if(vr.length === 3) vr = vr+")";
+                        if(vr.length === 9) vr = vr+"-";
+		return vr;
+	}
+        
+        function FormataNumero2(evt){
+		vr = (navigator.appName === 'Netscape') ?evt.target.value : evt.scrElement.value;
+			if(vr.length === 0) vr = vr+"(";
+                        if(vr.length === 3) vr = vr+")";
+                        if(vr.length === 9) vr = vr+"-";
+		return vr;
+	}
+        
+	
+	function FormataDN(evt){
+		vr = (navigator.appName === 'Netscape') ?evt.target.value : evt.scrElement.value;
+			if(vr.length === 2) vr = vr+"/";
+			if(vr.length === 5) vr = vr+"/";
+		return vr;
+	}
+</script> 
+</head>
+<body class="center-form">
+	<p>
+   <?php
+	/*	if(isset($_POST["erro1"])){
+			echo "<script>alert('CPF invalido. Por favor digite CPF válido');</script>";
+		}
+		
+		?>
+		</p>
+	<p>
+   <?php
+		if(isset($_POST["erro2"])){
+			echo "<script>alert('Senhas incorretas. Por favor digite novame');</script>";
+		}
+		
+	*/	?>
+		</p>
+</br>
+    <div id="title"><h1>Cadastro de cliente </h1></div>
+    
+    <div class="center-form">
+    <form action="../Controle/recebeformulario.php" method="POST">
+        <br><br>
+                    <div id="content">
+		
+		</br>
+		
+		<input type="text" name="user" id="user" value="<?php echo isset($_COOKIE["user"])?$_COOKIE["user"]:"";?>" maxlength="20" placeholder="*Usuário" required/></br>
+		
+		</br><input type="password" name="senha" id="senha"  placeholder="*Criar senha" required/>
+		
+		<input type="password" name="confirmasenha" id="csenha" placeholder="*Confirmar senha" required/></br></br>
+		
+		<input type="text" id="nome" name="nomecompleto" value= "<?php echo isset($_COOKIE["nomecompleto"])?$_COOKIE["nomecompleto"]:"";?>" placeholder="*Nome completo" size= "45" required></br></br>
+		
+		<input id="cpf" type="text" name="cpf" size= "30" placeholder="*CPF" onkeypress="this.value = FormataCpf(event)" maxlength="14" onpaste="return false;" required/><br></br>
+		
+        <input id="DN" type="text" name="data" size= "50" class="corForm" value="<?php echo isset($_COOKIE["data"])?$_COOKIE["data"]:"";?>" placeholder="*Data de nascimento:         
+             Ex:31/12/1900" onKeyPress="this.value = FormataDN(event);" maxlength="10" onBlur= "ValidaDataform1.data);" required/></br>
+
+		<label for="sexo" class="corForm"><p>Sexo: </p></label>
+		<input type="radio" value="M" name="sexo">Masculino</input>
+		<input type="radio" value="F" name="sexo">Feminino</input></br>	</br>
+		
+		<label for="endereço">________________Endereço________________</label></br>
+		
+		</br>
+		
+		<input type="text" name="rua" placeholder="*Rua" value="<?php echo isset($_COOKIE["rua"])?$_COOKIE["rua"]:"";?>" size= "40" required></br></br>
+		
+        <input type="text" id="ncasa" name="numero" placeholder = "*Nº da casa" maxlength="7" size = "15" value="<?php echo isset($_COOKIE["numero"])?$_COOKIE["numero"]:"";?>" required> </br></br>
+		
+		<input type="text" name="bairro" size= "30" placeholder = "*Bairro" value="<?php echo isset($_COOKIE["bairro"])?$_COOKIE["bairro"]:"";?>" required></br></br>
+		
+		<input type="text" name="complemento" size= "30" value="<?php echo isset($_COOKIE["complemento"])?$_COOKIE["complemento"]:"";?>" placeholder = "Complemento"></br></br>
+		
+		<input type="text" id="cep" name="cep" placeholder = "*CEP" size= "30" value="<?php echo isset($_COOKIE["cep"])?$_COOKIE["cep"]:"";?>" placeholder="Ex: 00.000-00" onKeyPress="this.value = FormataCep(event)" maxlength="10" onBlur="ValidaCep(form1.cep)" required></br></br>
+		
+		<input type="text" name="cidade" value="<?php echo isset($_COOKIE["cidade"])?$_COOKIE["cidade"]:"";?>" placeholder = "*Cidade" size= "30" required>      
+		
+		<label>------------</label>
+
+		<select name="uf" value="<?php echo isset($_COOKIE["uf"])?$_COOKIE["uf"]:"";?>"> 
+				<option >UF </option>
+				<option value="AC"> AC </option>
+				<option value="AL"> AL </option>
+				<option value="AP"> AP </option>
+				<option value="AM"> AM </option>
+				<option value="BA"> BA </option>
+				<option value="CE"> CE </option>
+				<option value="DF"> DF </option>
+				<option value="ES"> ES </option>
+				<option value="GO"> GO </option>
+				<option value="MA"> MA </option>
+				<option value="MT"> MT </option>
+				<option value="MS"> MS </option>
+				<option value="MG"> MG </option>
+				<option value="PA"> PA </option>
+				<option value="PB"> PB </option>
+				<option value="PR"> PR </option>
+				<option value="PE"> PE </option>
+				<option value="PI"> PI </option>
+				<option value="RR"> RR </option>
+				<option value="RO"> RO </option>
+				<option value="RJ"> RJ </option>
+				<option value="RN"> RN </option>
+				<option value="RS"> RS </option>
+				<option value="SC"> SC </option>
+				<option value="SP"> SP </option>
+				<option value="SE"> SE </option>
+				<option value="TO"> TO </option>
+		</select></br>
+		
+		<label>________________________________________</label></br></br>
+		
+        <input type="text" id="tel" name="telefonewpp" value="<?php echo isset($_COOKIE["telefonewpp"])?$_COOKIE["telefonewpp"]:"";?>" placeholder = "*Tel. Whatsapp                           
+                       Ex:(86)99999-9999" size= "50" maxlength="14" onkeypress= "this.value = FormataNumero(event)" required/></br></br>
+      	
+      	<input type="text" id="tel2" name="tel2" value="<?php echo isset($_COOKIE["tel2"])?$_COOKIE["tel2"]:"";?>" size= "50" maxlength="14" placeholder="Tel. Opcional                                 Ex:(86)99999-9999" onkeypress= "this.value = FormataNumero2(event)"/></br></br>
+		
+		<input type="email" name="email" size="50" value="<?php echo isset($_COOKIE["email"])?$_COOKIE["email"]:"";?>" placeholder="*E-mail                                  
+                               Ex:exemplo@email.com" required></br></br></br>
+		
+		<label><p class="corForm">* Campos Obrigatorios</p></label>
+		
+		<button  value="submit" >Enviar</button>
+         
+	
+	</form>
+	</div>
+    </div>
+</body>
+</html>

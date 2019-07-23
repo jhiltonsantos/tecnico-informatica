@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block titulo %}
+            AppWebPython
+        {% endblock %}
+    </title>
+</head>
+<body>
+    <h3>
+
+        {% for msg in get_flashed_messages() %}
+            {{ msg }}
+        {% endfor %}
+
+    </h3>
+
+    <h1>Site</h1>
+
+    <ul>
+        <li><a href="/home/1">Home</a></li>
+        <li><a href="/sobre/a">Sobre</a></li>
+        <li><a href="/quem_somos">Quem Somos</a></li>
+        {% if 'user' in session%}
+            <li>logado(<a href="/logout"> sair </a>)</li>
+        {% else %}
+            <li><a href="/login">Entrar</a></li>
+        {% endif %}
+    </ul>
+    {% block conteudo %}
+    {% endblock %}
+
+</body>
+</html>

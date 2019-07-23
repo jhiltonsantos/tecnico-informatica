@@ -1,0 +1,22 @@
+body{
+    background-color: #ccccff;
+}
+form{
+    background-color: #ffccff;
+    width: 60%;
+    height: 100%;
+    
+    text-align: justify;
+    font-family: comic sans ms;
+    border-radius: 100px;
+    
+}
+input{
+    border: 2px;
+    border-radius: 4px;
+	margin-left:35%;
+}
+label,select,legend{
+    width: 30%;
+    margin-left:35% ;
+}

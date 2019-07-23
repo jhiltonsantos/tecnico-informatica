@@ -1,0 +1,36 @@
+body{
+    background-color: #5C4033;
+    font-family: Georgia;
+    font-size: 100%;
+}
+
+header {
+    background-color: #F1F1F1;
+    text-align: center;
+    padding: 20px;
+}
+
+footer {
+    padding: 1em;
+    color: white;
+    background-color: #0077aa;
+    clear: left;
+    text-align: center; 
+}
+
+input[type=submit], input[type=button], option, select, textArea,input[type=tel], input[type=number]{
+    font-family: Georgia;
+    font-size: 100%;
+}
+
+input[type=text], input[type=password],input[type=tel], input[type=number]{
+    font-family: Georgia;
+    font-size: 90%;
+    font-style: italic;
+}
+
+input[type=email], input[type=tel], input[type=number]{
+    font-family: Georgia;
+    font-size: 90%;
+    font-style: italic;
+}
