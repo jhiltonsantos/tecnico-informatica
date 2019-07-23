@@ -1,4 +1,4 @@
-Técnico em Infomática (2015 - 2018)
+# Técnico em Infomática (2015 - 2018)
 
 Arquivos e códigos do período do técnico.
 
